@@ -319,6 +319,14 @@ public class MusicModule extends ReactContextBaseJavaModule implements ServiceCo
     }
 
     @ReactMethod
+    public void updateNowPlayingUcarInfo(float duration, String title, String artist, String album, String lyric, final Promise callback) {
+      waitForConnection(() -> {
+        binder.updateNowPlayingUcarInfo((long) duration, title, artist, album, lyric);
+        callback.resolve(null);
+      });
+    }
+
+    @ReactMethod
     public void removeUpcomingTracks(final Promise callback) {
         waitForConnection(() -> {
             binder.getPlayback().removeUpcomingTracks();

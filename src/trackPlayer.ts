@@ -155,6 +155,10 @@ async function updateNowPlayingTitles(duration: number, title: string, artist: s
   return TrackPlayer.updateNowPlayingTitles(duration, title, artist, album)
 }
 
+async function updateNowPlayingUcarInfo(duration: number, title: string, artist: string, album: string, lyric?: string): Promise<void> {
+  return TrackPlayer.updateNowPlayingUcarInfo(duration, title, artist, album, lyric)
+}
+
 // MARK: - Player API
 
 async function reset(): Promise<void> {

@@ -224,6 +224,7 @@ export interface TrackMetadataBase {
 
 export interface NowPlayingMetadata extends TrackMetadataBase {
   elapsedTime?: number
+  lyric?: string
 }
 
 export interface Track extends TrackMetadataBase {

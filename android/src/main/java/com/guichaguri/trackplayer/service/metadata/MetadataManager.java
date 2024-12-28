@@ -276,6 +276,29 @@ public class MetadataManager {
       updatePlaybackState(playback);
     }
 
+    public void updateNowPlayingUcarInfo(ExoPlayback playback, long duration, String title, String artist, String album, String lyric) {
+        MediaMetadataCompat.Builder metadata = new MediaMetadataCompat.Builder();
+        metadata.putString(METADATA_KEY_TITLE, title);
+        metadata.putString(METADATA_KEY_ARTIST, artist);
+        metadata.putString(METADATA_KEY_ALBUM, album);
+        if (prevArtwork != null) {
+          metadata.putString(METADATA_KEY_ART_URI, prevArtwork.toString());
+        }
+        if (prevArtResource != null) {
+          metadata.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, prevArtResource);
+        }
+        metadata.putLong(METADATA_KEY_DURATION, duration);
+    
+        if (lyric != null) {
+          metadata.putString("ucar.media.metadata.UCAR_TITLE", title);
+          metadata.putString("ucar.media.metadata.UCAR_ARTIST", artist);
+          metadata.putString("ucar.media.metadata.LYRICS_LINE", lyric);
+        }
+    
+        session.setMetadata(metadata.build());
+        updatePlaybackState(playback);
+      }
+
     /**
      * Updates the playback state and notification buttons
      */

@@ -72,6 +72,14 @@ public class MusicBinder extends Binder {
       session.setActive(true);
     }
 
+    public void updateNowPlayingUcarInfo(long duration, String title, String artist, String album, String lyric) {
+        MetadataManager metadata = manager.getMetadata();
+        metadata.updateNowPlayingUcarInfo(getPlayback(), duration, title, artist, album, lyric);
+        MediaSessionCompat session = metadata.getSession();
+        if (session.isActive()) return;
+        session.setActive(true);
+      }
+
     public int getRatingType() {
         return manager.getMetadata().getRatingType();
     }
