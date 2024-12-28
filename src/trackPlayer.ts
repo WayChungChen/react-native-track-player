@@ -286,7 +286,8 @@ export default {
   clearNowPlayingMetadata,
   updateNowPlayingMetadata,
   updateNowPlayingTitles,
-
+  updateNowPlayingUcarInfo,
+  
   // MARK: - Player API
   reset,
   play,
