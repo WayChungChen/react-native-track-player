@@ -225,6 +225,7 @@ export interface TrackMetadataBase {
 export interface NowPlayingMetadata extends TrackMetadataBase {
   elapsedTime?: number
   lyric?: string
+  [key: string]: any
 }
 
 export interface Track extends TrackMetadataBase {
@@ -238,3 +239,5 @@ export interface Track extends TrackMetadataBase {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
+
+

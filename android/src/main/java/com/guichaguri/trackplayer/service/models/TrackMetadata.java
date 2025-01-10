@@ -30,6 +30,9 @@ public abstract class TrackMetadata {
     public String genre;
     public long duration;
 
+    public String lyricsWhole;
+
+
     public RatingCompat rating;
 
     public void setMetadata(Context context, Bundle bundle, int ratingType) {
@@ -41,6 +44,7 @@ public abstract class TrackMetadata {
         date = bundle.getString("date");
         genre = bundle.getString("genre");
         duration = Utils.toMillis(bundle.getDouble("duration", 0));
+        lyricsWhole = bundle.getString("lrc");
 
         rating = Utils.getRating(bundle, "rating", ratingType);
     }
@@ -64,6 +68,10 @@ public abstract class TrackMetadata {
 
         if (rating != null) {
             builder.putRating(METADATA_KEY_RATING, rating);
+        }
+
+        if (lyricsWhole != null) {
+          builder.putString("ucar.media.metadata.LYRICS_WHOLE", lyricsWhole);
         }
 
         return builder;
