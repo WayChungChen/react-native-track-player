@@ -290,9 +290,8 @@ public class MetadataManager {
         metadata.putLong(METADATA_KEY_DURATION, duration);
     
         if (lyric != null) {
-          Log.i("MetadataManager", "歌手：" + artist);
-          metadata.putString("ucar.media.metadata.UCAR_TITLE", title);
-          metadata.putString("ucar.media.metadata.UCAR_ARTIST", artist);
+        //   metadata.putString("ucar.media.metadata.UCAR_TITLE", title);
+        //   metadata.putString("ucar.media.metadata.UCAR_ARTIST", artist);
           metadata.putString("ucar.media.metadata.LYRICS_LINE", lyric);
         }
     
